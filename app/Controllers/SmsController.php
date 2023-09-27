@@ -9,7 +9,7 @@ class SmsController extends BaseController
 {
     public function send()
     {
-        $phoneNumberTo ='+923166717394';
+        $phoneNumberTo ='+923227063038';
         try {
             // Initialize the Twilio client
            
@@ -26,13 +26,14 @@ class SmsController extends BaseController
             // Check if the phone number is valid
             //log_message('debug', print_r($lookup, true));
             if ($lookup->carrier && $lookup->phoneNumber) {
-            //     $twilio->messages->create(
-            //     $phoneNumberTo,
-            //     [
-            //         'from' => $config->phoneNumber,
-            //         'body' => 'Hello, this is a test SMS from CodeIgniter 4.'
-            //     ]
-            // );
+                $twilio->messages->create(
+                $phoneNumberTo,
+                [
+                    'from' => $config->phoneNumber,
+                    'body' => 'Hello, this is a test SMS from CodeIgniter 4.'
+                ]
+            );
+            echo 'SMS sent successfully.';
             } else {
                 echo 'false ', exit;
             }
@@ -41,13 +42,13 @@ class SmsController extends BaseController
           
             // // Send an SMS
             
-            $twilio->messages->create(
-                $phoneNumberTo,
-                [
-                    'from' => $config->phoneNumber,
-                    'body' => 'Hello, this is a test SMS from CodeIgniter 4.'
-                ]
-            );
+            // $twilio->messages->create(
+            //     $phoneNumberTo,
+            //     [
+            //         'from' => $config->phoneNumber,
+            //         'body' => 'Hello, this is a test SMS from CodeIgniter 4.'
+            //     ]
+            // );
 
             // return 'SMS sent successfully.';
             // } else {
